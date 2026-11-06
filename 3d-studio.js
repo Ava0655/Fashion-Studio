@@ -109,26 +109,33 @@ function createMannequin() {
         [0, 3.72, 0]
     );
 
-    // Smooth upper body and waist
-    const torsoPoints = [
-        new THREE.Vector2(0.24, 1.85),
-        new THREE.Vector2(0.30, 2.05),
-        new THREE.Vector2(0.27, 2.25),
-        new THREE.Vector2(0.31, 2.48),
-        new THREE.Vector2(0.39, 2.75),
-        new THREE.Vector2(0.47, 3.05),
-        new THREE.Vector2(0.39, 3.28),
+    // Smooth, sculpted torso and waist
+    const torsoProfile = new THREE.SplineCurve([
+        new THREE.Vector2(0.34, 1.85),
+        new THREE.Vector2(0.40, 2.00),
+        new THREE.Vector2(0.34, 2.15),
+        new THREE.Vector2(0.27, 2.38),
+        new THREE.Vector2(0.29, 2.58),
+        new THREE.Vector2(0.35, 2.78),
+        new THREE.Vector2(0.43, 3.02),
+        new THREE.Vector2(0.45, 3.17),
+        new THREE.Vector2(0.36, 3.32),
         new THREE.Vector2(0.25, 3.48)
-    ];
+    ]);
+
+    const torsoPoints = torsoProfile.getPoints(40);
+
+    const torsoGeometry = new THREE.LatheGeometry(
+        torsoPoints,
+        64
+    );
 
     addMesh(
         mannequin,
-        new THREE.LatheGeometry(torsoPoints, 64),
+        torsoGeometry,
         skinMaterial,
         [0, 0, 0]
     );
-
-   
     // Continuous, smoothly curved arms
     for (const side of [-1, 1]) {
 
