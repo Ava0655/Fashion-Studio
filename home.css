@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #100e16;
+    color: #f8f2fa;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 8%;
+    border-bottom: 1px solid #302638;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 19px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: #d8b8e8;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.hero {
+    padding: 100px 20px;
+    text-align: center;
+    background: radial-gradient(ellipse at center, #35213f, #100e16 70%);
+}
+
+.eyebrow {
+    color: #d7a8df;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 82px);
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+h1 span {
+    color: #d9a8e7;
+    font-style: italic;
+}
+
+.hero > p:not(.eyebrow) {
+    color: #c0b7c7;
+    max-width: 500px;
+    margin: 22px auto 32px;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    color: #17101c;
+    background: linear-gradient(100deg, #e7bce8, #c8a7ed);
+    padding: 15px 30px;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px #c88de855;
+}
+
+.ideas {
+    padding: 65px 8%;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 500;
+    margin-bottom: 35px;
+}
+
+.idea-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.idea-card {
+    background: #1b1722;
+    border: 1px solid #382c40;
+    border-radius: 18px;
+    padding: 35px 20px;
+    transition: 0.3s;
+}
+
+.idea-card:hover {
+    transform: translateY(-6px);
+    border-color: #bd91ce;
+}
+
+.symbol {
+    color: #d9a8e7;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.idea-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.idea-card p {
+    color: #a99eaf;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+@media (max-width: 650px) {
+    header {
+        padding: 22px 6%;
+    }
+
+    .logo {
+        font-size: 15px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    .idea-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 75px 20px;
+    }
+}
