@@ -129,43 +129,38 @@ function createMannequin() {
     );
 
    
-    // Smooth, gently curved arms
+    // Continuous, smoothly curved arms
     for (const side of [-1, 1]) {
 
-        // Upper arms
-        const upperArm = addMesh(
-            mannequin,
-            new THREE.CapsuleGeometry(0.105, 0.72, 12, 32),
-            skinMaterial,
-            [side * 0.55, 2.83, 0]
+        const armCurve = new THREE.CatmullRomCurve3([
+            new THREE.Vector3(side * 0.40, 3.22, 0),
+            new THREE.Vector3(side * 0.55, 2.95, 0.015),
+            new THREE.Vector3(side * 0.66, 2.55, 0.04),
+            new THREE.Vector3(side * 0.73, 2.12, 0.08),
+            new THREE.Vector3(side * 0.77, 1.78, 0.10)
+        ]);
+
+        const armGeometry = new THREE.TubeGeometry(
+            armCurve,
+            48,
+            0.085,
+            20,
+            false
         );
 
-        upperArm.rotation.z = side * -0.20;
+        addMesh(
+            mannequin,
+            armGeometry,
+            skinMaterial,
+            [0, 0, 0]
+        );
 
-        // Elbows
+        // Rounded hands
         addMesh(
             mannequin,
             new THREE.SphereGeometry(0.105, 32, 32),
             skinMaterial,
-            [side * 0.69, 2.40, 0]
-        );
-
-        // Lower arms
-        const lowerArm = addMesh(
-            mannequin,
-            new THREE.CapsuleGeometry(0.075, 0.68, 12, 32),
-            skinMaterial,
-            [side * 0.75, 2.00, 0]
-        );
-
-        lowerArm.rotation.z = side * -0.08;
-
-        // Smooth hands
-        addMesh(
-            mannequin,
-            new THREE.SphereGeometry(0.10, 32, 32),
-            skinMaterial,
-            [side * 0.78, 1.56, 0]
+            [side * 0.77, 1.70, 0.10]
         );
     }
 
