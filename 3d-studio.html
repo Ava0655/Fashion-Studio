@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Studio | Moonshine</title>
+
+    <link rel="stylesheet" href="3d-studio.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <a href="home.html" class="logo">☾ MOONSHINE</a>
+    <a href="design.html" class="back">← Drawing Studio</a>
+</header>
+
+<main>
+    <section class="heading">
+        <p class="eyebrow">YOUR DIGITAL ATELIER</p>
+        <h1>3D Fashion <span>Studio</span></h1>
+        <p>Bring your fashion ideas to life.</p>
+    </section>
+
+    <section class="studio">
+
+        <aside class="tools">
+            <h2>Design Tools</h2>
+
+            <label for="garment">Choose clothing</label>
+            <select id="garment">
+                <option value="crop">Crop Top</option>
+                <option value="shirt">T-Shirt</option>
+                <option value="dress">Dress</option>
+                <option value="pants">Pants</option>
+                <option value="jacket">Jacket</option>
+            </select>
+
+            <label for="color">Fabric color</label>
+            <input type="color" id="color" value="#b88acb">
+
+            <button id="mannequinBtn">Show Mannequin</button>
+            <button id="rotateBtn">Rotate Model</button>
+        </aside>
+
+        <section class="viewer">
+            <div class="viewer-top">
+                <span>3D PREVIEW</span>
+                <span id="status">Loading studio...</span>
+            </div>
+
+            <div id="modelViewer"></div>
+
+            <p class="hint">
+                Drag to rotate your design. Scroll to zoom.
+            </p>
+        </section>
+
+    </section>
+</main>
+
+<script type="module" src="3d-studio.js"></script>
+
+</body>
+</html>
