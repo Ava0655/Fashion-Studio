@@ -209,8 +209,12 @@ canvas.addEventListener("pointermove", (event) => {
 
 // Stop drawing
 function stopDrawing() {
+    if (!drawing) return;
+
     drawing = false;
-    drawingCtx.beginPath();
+    drawingCtx.closePath();
+
+    redraw();
 }
 
 canvas.addEventListener("pointerup", stopDrawing);
