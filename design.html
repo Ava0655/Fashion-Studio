@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Studio | Moonshine</title>
+    <link rel="stylesheet" href="design.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <a href="home.html" class="logo">☾ MOONSHINE</a>
+    <a href="home.html" class="back">← Back to Explore</a>
+</header>
+
+<main>
+    <section class="heading">
+        <p class="eyebrow">YOUR CREATIVE SPACE</p>
+        <h1>The Design <span>Studio</span></h1>
+        <p>Every great design starts with an idea.</p>
+    </section>
+
+    <section class="workspace">
+
+        <div class="tools">
+            <h2>Drawing Tools</h2>
+
+            <label for="color">Choose a color</label>
+            <input type="color" id="color" value="#d9a8e7">
+
+            <label for="brushSize">Brush size</label>
+            <input type="range" id="brushSize" min="1" max="30" value="5">
+
+            <button id="penBtn" class="tool-btn active">✎ Pen</button>
+            <button id="eraserBtn" class="tool-btn">⌫ Eraser</button>
+            <button id="clearBtn" class="tool-btn">Clear Canvas</button>
+
+            <p class="hint">Let your imagination lead the way ✨</p>
+        </div>
+
+        <div class="canvas-area">
+            <div class="canvas-top">
+                <span>MY FASHION DESIGN</span>
+                <button id="saveBtn">↓ Save Design</button>
+            </div>
+
+            <canvas id="drawingCanvas" width="900" height="600"></canvas>
+        </div>
+
+    </section>
+</main>
+
+<script src="design.js"></script>
+</body>
+</html>
