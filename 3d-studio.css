@@ -1,0 +1,186 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #100e16;
+    color: #f8f2fa;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 7%;
+    border-bottom: 1px solid #302638;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.back {
+    color: #d9a8e7;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.heading {
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.eyebrow {
+    color: #d7a8df;
+    letter-spacing: 4px;
+    font-size: 11px;
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 60px);
+    font-weight: 500;
+}
+
+h1 span {
+    color: #d9a8e7;
+    font-style: italic;
+}
+
+.heading > p:last-child {
+    color: #a99eaf;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+.studio {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    gap: 22px;
+    padding: 20px 7% 60px;
+    max-width: 1500px;
+    margin: auto;
+}
+
+.tools,
+.viewer {
+    background: #1b1722;
+    border: 1px solid #382c40;
+    border-radius: 16px;
+    padding: 22px;
+}
+
+.tools {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tools h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+}
+
+.tools label {
+    color: #c0b7c7;
+    font-size: 12px;
+}
+
+.tools select,
+.tools button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 9px;
+    border: 1px solid #493852;
+    background: #292231;
+    color: #eee4f2;
+    font-family: 'Poppins', sans-serif;
+}
+
+.tools button {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.tools button:hover {
+    background: #d9a8e7;
+    color: #17101c;
+}
+
+input[type="color"] {
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.viewer {
+    min-width: 0;
+}
+
+.viewer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    color: #d9a8e7;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+#status {
+    color: #a99eaf;
+    letter-spacing: 0;
+}
+
+#modelViewer {
+    width: 100%;
+    min-height: 500px;
+    height: 65vh;
+    max-height: 750px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: radial-gradient(circle, #302638, #100e16);
+}
+
+#modelViewer canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.hint {
+    color: #93859d;
+    font-size: 11px;
+    margin-top: 14px;
+    text-align: center;
+}
+
+@media (max-width: 750px) {
+    .studio {
+        grid-template-columns: 1fr;
+        padding: 15px 5% 40px;
+    }
+
+    header {
+        padding: 20px 5%;
+    }
+
+    .logo {
+        font-size: 14px;
+    }
+
+    #modelViewer {
+        min-height: 400px;
+    }
+}
