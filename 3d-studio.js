@@ -8,7 +8,7 @@ const colorPicker = document.getElementById("color");
 const mannequinBtn = document.getElementById("mannequinBtn");
 const rotateBtn = document.getElementById("rotateBtn");
 const status = document.getElementById("status");
-
+status.textContent = "JavaScript is running!";
 const scene = new THREE.Scene();
 scene.background = new THREE.Color("#17121f");
 
