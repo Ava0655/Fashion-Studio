@@ -171,16 +171,32 @@ function createMannequin() {
         );
     }
 
-    // Smooth legs
+        // Smooth, naturally tapered legs
     for (const side of [-1, 1]) {
-        addMesh(
-            mannequin,
-            new THREE.CapsuleGeometry(0.135, 1.35, 8, 32),
-            skinMaterial,
-            [side * 0.19, 0.95, 0]
+
+        const legProfile = new THREE.SplineCurve([
+            new THREE.Vector2(0.09, 0.00),
+            new THREE.Vector2(0.11, 0.15),
+            new THREE.Vector2(0.13, 0.50),
+            new THREE.Vector2(0.15, 0.90),
+            new THREE.Vector2(0.17, 1.30),
+            new THREE.Vector2(0.19, 1.65),
+            new THREE.Vector2(0.18, 1.85)
+        ]);
+
+        const legGeometry = new THREE.LatheGeometry(
+            legProfile.getPoints(40),
+            48
         );
 
-        // Feet
+        addMesh(
+            mannequin,
+            legGeometry,
+            skinMaterial,
+            [side * 0.19, 0.05, 0]
+        );
+
+        // Rounded feet
         addMesh(
             mannequin,
             new THREE.SphereGeometry(0.15, 32, 32),
@@ -188,7 +204,6 @@ function createMannequin() {
             [side * 0.19, 0.12, 0.10]
         );
     }
-}
 
 
 function createTop(material, style) {
