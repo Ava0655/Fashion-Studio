@@ -207,8 +207,6 @@ function createMannequin() {
 }
 
 function createTop(material, style) {
-
-function createTop(material, style) {
     const points = style === "crop"
         ? [
             new THREE.Vector2(0.37, 2.45),
