@@ -90,44 +90,36 @@ function addMesh(group, geometry, material, position) {
     return mesh;
 }
 
+
 function createMannequin() {
     mannequin.clear();
 
-    // Smooth mannequin head
+    // Elegant neck
     addMesh(
         mannequin,
-        new THREE.SphereGeometry(0.27, 48, 48),
+        new THREE.CylinderGeometry(0.14, 0.17, 0.32, 48),
         skinMaterial,
-        [0, 4.05, 0]
+        [0, 3.65, 0]
     );
 
-    // Neck
-    addMesh(
-        mannequin,
-        new THREE.CylinderGeometry(0.13, 0.15, 0.3, 48),
-        skinMaterial,
-        [0, 3.72, 0]
-    );
-
-        // Smooth, natural torso, waist and hips
+    // Smooth couture dress-form body
     const torsoProfile = new THREE.SplineCurve([
-            new THREE.Vector2(0.32, 1.78),
-        new THREE.Vector2(0.35, 1.92),
-        new THREE.Vector2(0.34, 2.08),
-        new THREE.Vector2(0.30, 2.25),
-        new THREE.Vector2(0.29, 2.43),
-        new THREE.Vector2(0.33, 2.62),
-        new THREE.Vector2(0.41, 2.82),
-        new THREE.Vector2(0.49, 3.02),
-        new THREE.Vector2(0.47, 3.15),
-        new THREE.Vector2(0.38, 3.30),
-        new THREE.Vector2(0.25, 3.48)
-]);
-    const torsoPoints = torsoProfile.getPoints(60);
+        new THREE.Vector2(0.34, 1.65),
+        new THREE.Vector2(0.42, 1.82),
+        new THREE.Vector2(0.43, 2.00),
+        new THREE.Vector2(0.34, 2.18),
+        new THREE.Vector2(0.29, 2.40),
+        new THREE.Vector2(0.31, 2.58),
+        new THREE.Vector2(0.39, 2.78),
+        new THREE.Vector2(0.49, 2.98),
+        new THREE.Vector2(0.48, 3.12),
+        new THREE.Vector2(0.37, 3.28),
+        new THREE.Vector2(0.25, 3.42)
+    ]);
 
     const torsoGeometry = new THREE.LatheGeometry(
-        torsoPoints,
-        64
+        torsoProfile.getPoints(100),
+        96
     );
 
     addMesh(
@@ -136,74 +128,14 @@ function createMannequin() {
         skinMaterial,
         [0, 0, 0]
     );
-    // Continuous, smoothly curved arms
-    for (const side of [-1, 1]) {
 
-        const armCurve = new THREE.CatmullRomCurve3([
-            new THREE.Vector3(side * 0.40, 3.22, 0),
-            new THREE.Vector3(side * 0.55, 2.95, 0.015),
-            new THREE.Vector3(side * 0.66, 2.55, 0.04),
-            new THREE.Vector3(side * 0.73, 2.12, 0.08),
-            new THREE.Vector3(side * 0.77, 1.78, 0.10)
-        ]);
-
-        const armGeometry = new THREE.TubeGeometry(
-            armCurve,
-            48,
-            0.085,
-            20,
-            false
-        );
-
-        addMesh(
-            mannequin,
-            armGeometry,
-            skinMaterial,
-            [0, 0, 0]
-        );
-
-        // Rounded hands
-        addMesh(
-            mannequin,
-            new THREE.SphereGeometry(0.105, 32, 32),
-            skinMaterial,
-            [side * 0.77, 1.70, 0.10]
-        );
-    }
-
-        // Smooth, naturally tapered legs
-    for (const side of [-1, 1]) {
-
-        const legProfile = new THREE.SplineCurve([
-            new THREE.Vector2(0.09, 0.00),
-            new THREE.Vector2(0.11, 0.15),
-            new THREE.Vector2(0.13, 0.50),
-            new THREE.Vector2(0.15, 0.90),
-            new THREE.Vector2(0.17, 1.30),
-            new THREE.Vector2(0.19, 1.65),
-            new THREE.Vector2(0.18, 1.85)
-        ]);
-
-        const legGeometry = new THREE.LatheGeometry(
-            legProfile.getPoints(40),
-            48
-        );
-
-        addMesh(
-            mannequin,
-            legGeometry,
-            skinMaterial,
-            [side * 0.19, 0.05, 0]
-        );
-
-        // Rounded feet
-        addMesh(
-            mannequin,
-            new THREE.SphereGeometry(0.15, 32, 32),
-            darkMaterial,
-                    [side * 0.19, 0.12, 0.10]
-        );
-    }
+    // Smooth top of the neck
+    addMesh(
+        mannequin,
+        new THREE.SphereGeometry(0.14, 32, 32),
+        skinMaterial,
+        [0, 3.82, 0]
+    );
 }
 
 function createTop(material, style) {
