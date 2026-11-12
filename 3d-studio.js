@@ -201,10 +201,12 @@ function createMannequin() {
             mannequin,
             new THREE.SphereGeometry(0.15, 32, 32),
             darkMaterial,
-            [side * 0.19, 0.12, 0.10]
+                    [side * 0.19, 0.12, 0.10]
         );
     }
 }
+
+function createTop(material, style) {
 
 function createTop(material, style) {
     const points = style === "crop"
