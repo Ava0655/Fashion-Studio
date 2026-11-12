@@ -111,17 +111,17 @@ function createMannequin() {
 
         // Smooth, natural torso, waist and hips
     const torsoProfile = new THREE.SplineCurve([
-    new THREE.Vector2(0.32, 1.78),
-    new THREE.Vector2(0.35, 1.92),
-    new THREE.Vector2(0.34, 2.08),
-    new THREE.Vector2(0.30, 2.25),
-    new THREE.Vector2(0.29, 2.43),
-    new THREE.Vector2(0.32, 2.62),
-    new THREE.Vector2(0.38, 2.82),
-    new THREE.Vector2(0.44, 3.02),
-    new THREE.Vector2(0.42, 3.18),
-    new THREE.Vector2(0.33, 3.32),
-    new THREE.Vector2(0.25, 3.48)
+            new THREE.Vector2(0.32, 1.78),
+        new THREE.Vector2(0.35, 1.92),
+        new THREE.Vector2(0.34, 2.08),
+        new THREE.Vector2(0.30, 2.25),
+        new THREE.Vector2(0.29, 2.43),
+        new THREE.Vector2(0.33, 2.62),
+        new THREE.Vector2(0.41, 2.82),
+        new THREE.Vector2(0.49, 3.02),
+        new THREE.Vector2(0.47, 3.15),
+        new THREE.Vector2(0.38, 3.30),
+        new THREE.Vector2(0.25, 3.48)
 ]);
     const torsoPoints = torsoProfile.getPoints(60);
 
