@@ -204,7 +204,7 @@ function createMannequin() {
             [side * 0.19, 0.12, 0.10]
         );
     }
-
+}
 
 function createTop(material, style) {
     const points = style === "crop"
