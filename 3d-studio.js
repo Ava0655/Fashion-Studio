@@ -91,10 +91,11 @@ function addMesh(group, geometry, material, position) {
 }
 
 
+
 function createMannequin() {
     mannequin.clear();
 
-    // Elegant neck
+    // Neck
     addMesh(
         mannequin,
         new THREE.CylinderGeometry(0.14, 0.17, 0.32, 48),
@@ -102,7 +103,7 @@ function createMannequin() {
         [0, 3.65, 0]
     );
 
-    // Smooth couture dress-form body
+    // Smooth torso, waist and hips
     const torsoProfile = new THREE.SplineCurve([
         new THREE.Vector2(0.34, 1.65),
         new THREE.Vector2(0.42, 1.82),
@@ -129,14 +130,49 @@ function createMannequin() {
         [0, 0, 0]
     );
 
-    // Smooth top of the neck
+    // Rounded neck top
     addMesh(
         mannequin,
         new THREE.SphereGeometry(0.14, 32, 32),
         skinMaterial,
         [0, 3.82, 0]
     );
+
+    // Smooth mannequin legs
+    for (const side of [-1, 1]) {
+        const legProfile = new THREE.SplineCurve([
+            new THREE.Vector2(0.10, 0.00),
+            new THREE.Vector2(0.12, 0.15),
+            new THREE.Vector2(0.14, 0.40),
+            new THREE.Vector2(0.16, 0.70),
+            new THREE.Vector2(0.18, 1.00),
+            new THREE.Vector2(0.20, 1.30),
+            new THREE.Vector2(0.20, 1.55),
+            new THREE.Vector2(0.18, 1.78)
+        ]);
+
+        const legGeometry = new THREE.LatheGeometry(
+            legProfile.getPoints(60),
+            64
+        );
+
+        addMesh(
+            mannequin,
+            legGeometry,
+            skinMaterial,
+            [side * 0.20, 0.05, 0]
+        );
+
+        // Feet
+        addMesh(
+            mannequin,
+            new THREE.SphereGeometry(0.14, 32, 32),
+            skinMaterial,
+            [side * 0.20, 0.10, 0.12]
+        );
+    }
 }
+
 
 function createTop(material, style) {
     const points = style === "crop"
